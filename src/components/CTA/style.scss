@@ -1,0 +1,48 @@
+.cta {
+  background: #2B1E3E;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+
+  .cta__inner {
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+  }
+
+  p {
+    color: #fff;
+    font-family: "RN House Sans", arial, sans-serif;
+    max-width: 560px;
+    font-size: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+  }
+
+}
+
+@media (max-width: 730px) {
+
+  .cta {
+    padding: 0;
+    .cta__inner {
+      flex-flow: column;
+      align-items: flex-start;
+      margin: 40px 0;
+      p{ 
+        font-size: 20px;
+        line-height: 20px;
+      }
+      .button {
+        padding-left: 0;
+        padding-top: 0;
+        margin-top: 30px;
+        a {
+          font-size: 19px;
+          padding: 12px 14px;
+        }
+      }
+    }
+  }
+}

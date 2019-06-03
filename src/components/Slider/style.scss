@@ -1,0 +1,211 @@
+.slider {
+  position: relative;
+  margin: 50px 0;
+  opacity: 1;
+
+  input {
+    position: absolute;
+    top: -5px;
+    width: 100%;
+    opacity: 0;
+    z-index: 999;
+    cursor: pointer;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    width: 40px;
+    height: 40px;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    padding : 40px;
+    height: 40px;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    width: 40px;
+    height: 40px;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+
+  .slider__title {
+    position: absolute;
+    font-family: "RN House Sans", arial, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 50px;
+    color: #401663;
+    text-align: center;
+    max-width: 100%;
+    margin: 3% 0 0;
+    width: 100%;
+  }
+
+  .slider__bg {
+    width: 100vw;
+    background: url('../../assets/office.svg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+  }
+
+  .slider__container {
+    position: absolute;
+    min-width: 33%;
+    min-height: 110px;
+    background: #401663;
+    top: 26%;
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 10px;
+    overflow: hidden;
+
+    .container__item {
+      position: absolute;
+      opacity: 0;
+      color: #fff;
+      padding: 7% 10%;
+      transition: opacity 0.3s, transform 0.4s;
+      transform: translateX(-100%);
+      text-align: center;
+
+      &.visible {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+  }
+
+  .slider__progress {
+    width: 60%;
+    max-width: 940px;
+    margin: 0 auto;
+
+    .progress-points {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+
+      .progress-point {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #6f2c91;
+        cursor: pointer;
+
+        &.active {
+          background: #00b6be;
+        }
+      }
+    }
+
+    .progress-line {
+      position: relative;
+      width: 100%;
+      width: calc(100% - 14px);
+      margin-left: 7px;
+      height: 3px;
+      background: #6f2c91;
+
+      .line-marker {
+        position: absolute;
+        top: -7px;
+        transition: left 0.01s;
+
+        img {
+          position: absolute;
+          left: -14px;
+          height: 30px;
+          top: -6px;
+          max-width: unset;
+        }
+
+      }
+    }
+  }
+  .slider__progress-mobile {
+    display: none;
+  }
+}
+
+.progress-marker {
+  position: absolute;
+  height: 10px;
+  width: 1px;
+  background: red;
+}
+
+@media (min-width: 730px) {
+  .slider {
+    .slider__container {
+      min-width: 500px;
+    }
+  }
+}
+
+@media (max-width: 730px) {
+  .slider {
+
+    .slider__title {
+      font-size: 32px;
+      line-height: 33px;
+      margin-top: 25px;
+      max-width: 70%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .slider__container {
+      min-width: 85%;
+      min-height: 140px;
+      top: 19%;
+    }
+
+    .slider__progress {
+      display: none;
+    }
+
+    .slider__progress-mobile {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+        .slider-total {
+          font-family: 'RN House Sans', arial, sans-serif;
+          font-weight: normal;
+          font-size: 22px;
+          line-height: 30px;
+          color: #6F2C91;
+          padding: 0 16px;
+        }
+        .slider-cont {
+          width: 35px;
+          padding-bottom: 35px;
+          background-color: #00b6be;
+          border-radius: 100%;
+          cursor: pointer;
+          background-image: url(../../assets/r-arrow.svg);
+          background-size: 35%;
+          background-position: 55% 50%;
+          background-repeat: no-repeat;
+
+          &.slider-prev {
+            transform: rotate(180deg);
+          }
+
+          &.noclick {
+            opacity: 0.4;
+            pointer-events: none;
+          }
+        }
+    }
+
+  }
+}
+
+
