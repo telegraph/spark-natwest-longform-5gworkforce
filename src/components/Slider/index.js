@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { officeSlider } from '../../data';
+import { skylineSlider } from '../../data';
 
+import skylineImg from '../../assets/skyline.svg';
 import officeSliderCube from '../../assets/office-slider-cube.svg';
 
 import './style.scss';
@@ -24,7 +25,7 @@ function Slider() {
 
   useEffect(() => {
     // on Mount
-    setItems(officeSlider);
+    setItems(skylineSlider);
   }, []);
 
   useEffect(() => {
@@ -56,14 +57,17 @@ function Slider() {
       <h2 className="slider__title">
         The sustainable office
       </h2>
-      <div className="slider__bg" />
+      <div className="slider__bg">
+      <img src={skylineImg} alt="Skyline" />
+      </div>
       <div className="slider__container">
         {items.map((item, i) => (
           <div
             className={`container__item ${currentItem === i ? 'visible' : ''}`}
             key={`container-item-${i + 1}`}
           >
-            {item.copy}
+            <h4>{item.title}</h4>
+            <p>{item.copy}</p>
           </div>
         ))}
       </div>
@@ -90,7 +94,7 @@ function Slider() {
         </div>
         <div className="progress-line">
         <input type="range"
-          min="0" max="16" onChange={handleThis} value={currentItem} step="1"></input>
+          min="0" max="7" onChange={handleThis} value={currentItem} step="1"></input>
           <div className="line-marker" style={{ left: `${itemProgress}%` }}>
             <img src={officeSliderCube} />
           </div>

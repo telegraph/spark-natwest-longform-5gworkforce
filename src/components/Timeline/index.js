@@ -1,8 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSpring, animated } from 'react-spring';
 
-import BackgroundBubble from '../VerticalSlider/subcomponents/BackgroundBubble';
+import Bubbles from '../Bubbles';
+
 
 import './style.scss';
+
+// const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
+// const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
+// const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 230}px,0)`;
+// const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`;
+// const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
 
 function Timeline({ title, items }) {
   // Set state
@@ -11,6 +19,8 @@ function Timeline({ title, items }) {
   // DOM Refs
   const timeLine = useRef(null);
   const timelineTitle = useRef(null);
+
+  // const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }));
 
   const handleScroll = () => {
     // Calculates when the timeline title should be fixed / when it should fade
@@ -45,40 +55,7 @@ function Timeline({ title, items }) {
 
   return (
     <div className="scrollGallery" ref={timeLine}>
-    <div id="parallax-container" className="bring-to-front">
-        <BackgroundBubble pos={{ top: '5%', left: '5vw' }} />
-        <BackgroundBubble pos={{ top: '6%', left: '100vw' }} />
-        <BackgroundBubble pos={{ top: '7%', left: '90vw' }} />
-        <BackgroundBubble pos={{ top: '8%', left: '10vw' }} />
-        <BackgroundBubble pos={{ top: '25%', left: '20vw' }} />
-        <BackgroundBubble pos={{ top: '30%', left: '70vw' }} />
-        <BackgroundBubble pos={{ top: '35%', left: '25vw' }} />
-        <BackgroundBubble pos={{ top: '40%', left: '80vw' }} />
-        <BackgroundBubble pos={{ top: '45%', left: '70vw' }} />
-        <BackgroundBubble pos={{ top: '50%', left: '30vw' }} />
-        <BackgroundBubble pos={{ top: '55%', left: '80vw' }} />
-        <BackgroundBubble pos={{ top: '60%', left: '70vw' }} />
-        <BackgroundBubble pos={{ top: '65%', left: '20vw' }} />
-        <BackgroundBubble pos={{ top: '70%', left: '20vw' }} />
-        <BackgroundBubble pos={{ top: '75%', left: '80vw' }} />
-        <BackgroundBubble pos={{ top: '80%', left: '75vw' }} />
-        <BackgroundBubble pos={{ top: '85%', left: '90vw' }} />
-        <BackgroundBubble pos={{ top: '90%', left: '100vw' }} />
-        <BackgroundBubble pos={{ top: '95%', left: '90vw' }} />
-        <BackgroundBubble pos={{ top: '16%', left: '10vw' }} />
-        <BackgroundBubble pos={{ top: '26%', left: '90vw' }} />
-        <BackgroundBubble pos={{ top: '36%', left: '10vw' }} />
-        <BackgroundBubble pos={{ top: '46%', left: '20vw' }} />
-        <BackgroundBubble pos={{ top: '56%', left: '12vw' }} />
-        <BackgroundBubble pos={{ top: '66%', left: '80vw' }} />
-        <BackgroundBubble pos={{ top: '77%', left: '15vw' }} />
-        <BackgroundBubble pos={{ top: '88%', left: '25vw' }} />
-        <BackgroundBubble pos={{ top: '99%', left: '10vw' }} />
-        <BackgroundBubble pos={{ top: '70%', left: '95vw' }} />
-        <BackgroundBubble pos={{ top: '75%', left: '5vw' }} />
-        <BackgroundBubble pos={{ top: '80%', left: '10vw' }} />
-        <BackgroundBubble pos={{ top: '85%', left: '5vw' }} />
-      </div>
+      <Bubbles />
       <h3 className={`scrollGallery__title ${fixed ? 'fixed' : ''} ${titleFade ? 'fade' : ''}`} ref={timelineTitle}>
         {title}
       </h3>
@@ -87,6 +64,9 @@ function Timeline({ title, items }) {
           <div className={`slides`} key={`slide-${i + 1}`}>
             <div className="text-box">
             <img className="image" src={item.img} alt={item.date} />
+              <h4>
+                {item.title}
+              </h4>
               <h4>
                 {item.date}
               </h4>

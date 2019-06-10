@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // Styles
 import './App.scss';
 // Data & external methods
-import { responsibilityTimeline, trendsImpacting } from './data';
+import { FiveGTimeline, retainTalent } from './data';
 import analytics from './helpers/analytics';
 
 // Components
@@ -19,8 +19,6 @@ import Button from './components/Button';
 import Title from './components/Title';
 import Timeline from './components/Timeline';
 import Slider from './components/Slider';
-import BasicSlider from './components/BasicSlider';
-import VerticalSlider from './components/VerticalSlider';
 import Related from './components/Related';
 import Credits from './components/Credits';
 import Footer from './components/Footer';
@@ -29,12 +27,11 @@ import AnimationTrigger from './components/AnimationTrigger';
 
 // Assets
 import heroImg from './assets/hero_desktop.svg';
-import heroImgMobile from './assets/hero_mobile.svg';
-import csrTitle from './assets/titles/house_light.svg';
-import whydoTitle from './assets/titles/doomsday_light.svg';
-import howcanTitle from './assets/titles/bricks_dark.svg';
-import barriersTitle from './assets/titles/oil_light.svg';
-import lookingTitle from './assets/titles/car_light.svg';
+import ladder from './assets/titles/ladder.svg';
+import globe from './assets/titles/globe.svg';
+import dumbbell from './assets/titles/dumbbell.svg';
+import plane from './assets/titles/plane.svg';
+import trophy from './assets/titles/trophy.svg';
 import Broughttyb from './components/Broughttyb';
 
 function App() {
@@ -67,382 +64,283 @@ function App() {
   return (
     <>
       <Header progress={progress} />
-      <Hero img={heroImg} imgMobile={heroImgMobile}>
-        <div className="hero__content">
-          <h1>The future of sustainability</h1>
-          <p>
-            Corporate social responsibility is big business — but how can UK
-            business-owners embed sustainability into their workplace cultures?
-          </p>
-        </div>
-      </Hero>
-      <PullQuoteSpecial>
-        <Pullquote specialQuote>
-          <h3>If we damage the natural world, we damage ourselves</h3>
-          <p>
-          Sir David Attenborough during an interview with Prince William at the World Economic Forum at Davos in January
-          </p>
-        </Pullquote>
-      </PullQuoteSpecial>
-      <Pagebody noPadding>
+      <Hero img={heroImg} />
+      <Pagebody>
         <AnimationTrigger>
           <p>
             <Dropcap>T</Dropcap>
-            hanks to television shows such as Sir David’s <em>Blue Planet II</em>, public
-            awareness of issues like sustainability has never been higher.
+            he way we work is changing: people no longer expect to work from nine to five, or spend four decades in the same job before retiring at 65. In response to these cultural and social shifts, businesses will need to demonstrate agility and adapt in order to thrive.
           </p>
           <p>
-            This poses a new challenge and opportunity for businesses, as
-            customers and investors judge companies on their ethical and
-            sustainable credentials.
+            Unemployment sits at a 44-year-low in Britain today and the freelance economy is booming, having grown 25pc since the financial crisis, according to IPSE, the Association of Independent Professionals and the Self-Employed. Deloitte finding that 21pc of millennial workers have moved job within the past year.
           </p>
           <p>
-            Dr Peter Jansen, principal lecturer at the London School of Business
-            and Finance, says: “Businesses are increasingly aware their reputation
-            depends on how socially and environmentally responsible they are
-            perceived to be.”
-          </p>
-          <p>
-            Research by NatWest found that Britain’s medium-sized businesses are
-            responding to this trend, with 57.5pc saying that sustainability is
-            “extremely” or “very” influential in their decision making*.
+            And thanks in part to changes in pension rules, people are working later in life. In fact, the average career exit age for men now is over 65. This means that workplaces are seeing five generations of employees all working together – the so-called “5G workforce”.
           </p>
         </AnimationTrigger>
       </Pagebody>
       <Timeline
-        title="Corporate and social responsibility timeline"
-        items={responsibilityTimeline}
+        title="The 5G Workforce"
+        items={FiveGTimeline}
       />
-      <Pagebody title="Corporate social responsibility" img={csrTitle}>
+      <Pagebody title="The rise of the 5G workforce" img={ladder}>
         <AnimationTrigger>
           <p>
-            The mindset of companies has shifted since the emergence of corporate
-            social responsibility (CSR) programmes, says Rob Cameron, of
-            SustainAbility, a business consultancy.
+            In response, people are embracing these changes and actively looking for non-traditional work, says Chris Gray, brand leader at recruitment company Manpower UK. Mr Gray says: “Over a third of UK workers are now looking for alternatives – including freelancing and gig working – over full-time jobs.”
           </p>
           <p>
-          “Business thinking about its role in society is not new,” says Mr
-            Cameron. “We might not have approved of the paternalistic approach of
-            Cadbury’s in the Victorian era, but it took a broad view of its
-            responsibilities, for instance housing workers.”
+            Workplaces are also facing challenges from technology, with up to 38pc of work potentially becoming automated, according to Accenture research.
           </p>
-          <p>
-            But in recent years, the movement towards corporate sustainability has
-            boomed. Fortune 500 companies spent $19.9bn (£15.08bn) on CSR in 2015,
-            according to Unesco.
-          </p>
-          <Pullquote>
+          <Pullquote quote>
             <h3>
-              More than 90% of the world’s top 250 companies now produce an annual
-              report on CSR
+              For mid-market companies, automation will mean a change in mindset about recruitment and HR.
             </h3>
-            <p>according to KPMG</p>
+            <p>Dr Naeema Pasha, director of careers at Henley Business School.</p>
           </Pullquote>
         </AnimationTrigger>
         <AnimationTrigger>
           <p>
-            This change initially came from the environmental movement, Mr Cameron
-            says, but CSR now takes in social concerns, and is increasingly
-            central to the way that companies work.
+            Dr Pasha says: “Career and human resources professionals need to do more to support workers as traditional HR delivery has not been adapted sufficiently to the future of work.”
           </p>
           <p>
-            He says: “The original idea of corporate social responsibility
-            programmes wasn’t actually philanthropy. It was to have companies
-            think deeply about their responsibilities.
+            Companies will need to focus on recruiting adaptable workers who have the skills to keep up with technology, she says. “Companies will need to retrain and recruit a workforce that is able to adapt to change effectively. The crucial skills include agility; critical thought; resilience and – most importantly – human skills and emotional intelligence, in order to build teams, collaborate and enable successful growth and transformation.”
           </p>
           <p>
-            In Britain, almost two-thirds of companies already invest in corporate
-            social responsibility programmes, research by NatWest shows, with 64pc
-            of midsized businesses having committed to ethical behaviour through
-            corporate social responsibility.
+            Technology can already help companies find the right employees, says Chris Gray, brand leader, Manpower UK. He says: “Integrating technology into your organisation is about striking the right balance. Take HR for example. Attracting and retaining the right talent should not be a battle between human and robot.
           </p>
           <p>
-            “Corporate social responsibility almost isn’t a ‘thing’ any more,”
-            says Giles Gibbons, founder of Good Business, which has advised
-            corporations such as Nike, Microsoft and McDonald’s.
+            “The best approach for HR is to blend high-tech with a high-touch approach. HR leaders can use automation and artificial intelligence (AI) to reduce the administrative burden and streamline hiring processes, without losing the personal interaction that candidates have come to value in recent years.
           </p>
           <p>
-            “Increasingly all businesses act that way: responsibility is
-            integrated into the core of the business,” he says.
+            “In fact, with so much of the initial contact between candidates and employers becoming automated, the need for in-person interaction is only set to further increase in importance.”
+          </p>
+          <Pullquote quote>
+            <h3>
+              Our research shows nearly two-thirds (61%) of UK jobseekers favour in-person interviews as their preferred recruitment method.
+            </h3>
+            <p>For employers in the UK, this trend offers an opportunity, according to Morten Petersen, of the artificial-intelligence-enabled recruitment company Worksome.</p>
+          </Pullquote>
+          <p>
+            Mr Petersen says: “Freelancers will come to play an even more pivotal role in the British economy than they already do. Since 2009, the freelance economy in the UK has grown by 25pc and generates an estimated £109bn a year, according to IPSE.
+          </p>
+          <p>
+            “There are around two million freelance workers in the UK. They represent an amazing pool of talent that can help companies suffering from the skills shortage.”
+          </p>
+          <p>
+            The shift in Britain’s way of working is reflected around the world, says Adrian Wright, principal lecturer at the University of Central Lancashire. Dr Wright says: “The changing workforce in the UK is reflective of other developed economies, as shifts to new emerging industries have led to more part-time work, increased self-employment and casual work.”
           </p>
         </AnimationTrigger>
       </Pagebody>
       <Slider />
       <Pagebody
-        title="Why do modern businesses need to be more sustainable?"
-        img={whydoTitle}
+        title="Trends in the global workforce"
+        img={globe}
       >
         <AnimationTrigger>
           <p>
-            When scientists moved the hands of the Doomsday Clock to two minutes
-            to midnight this year, it was the closest the hands have stood to 12
-            (symbolising the end of the world) since the height of the Cold War
-            nuclear arms race.
+            These trends are mirrored across territories including America and Europe, says Mr Petersen. “In the next five years, 45pc of workers in Europe will be self-employed, either completely or in combination with another job, according to (market intelligence provider) IDC. Fifty-three million people in the US are already freelancing either full-time or part-time.”
           </p>
           <p>
-            We are running out of time to address climate change, the scientists
-            warned – so concerns about sustainability are becoming mainstream,
-            says James Robey, global head of sustainability at analyst firm
-            Capgemini.
+            This means that workers across Europe are embracing new ways of working, and are reluctant to engage in traditional ways of applying for jobs, says Mr Bradley.
           </p>
         </AnimationTrigger>
         <Pullquote quote>
           <h3>
-            Edelman’s 2019 Trust barometer has shown an 11-point increase to 76%
-            of the general population agreeing that business leaders should take
-            a lead on these issues
+            The employment landscape is shifting. With a widespread skills shortage, employers are under constant pressure to attract and retain talent.
           </h3>
-          <p>James Robey, global head of sustainability, Capgemini</p>
+          <p>Richard Bradley, MD UK & Ireland of staffing company Kelly Services.</p>
         </Pullquote>
         <AnimationTrigger>
           <p>
-            The impact of climate change has featured in the World Economic
-            Forum’s top five global risks every year since 2011.
+            One way they can do this is by being flexible. Kelly Services’ research found that in the UK a relatively large number of workers aged 15-64 work full-time, with 80pc in full-time work, 14pc self-employed and 6pc on temporary contracts, according to Eurostat statistics. Around a third, 34pc of workers, have been in their role for 10 years.
           </p>
           <p>
-            All this means that large companies increasingly see sustainability as
-            a way to add value, says Mr Cameron. “It’s no longer just start-ups.
-            We’re seeing large well-established companies looking into low-carbon
-            solutions as we transition to a low-carbon economy.”
+            Other countries are even more reliant on temporary jobs. In the Netherlands, 64pc of workers are full-time, with 21pc temporary and 15pc self-employed.
           </p>
           <p>
-            And now it is not only consumers who are demanding that sustainability
-            be baked in to businesses, but also investors, Mr Cameron says. “We’re
-            also seeing interest from the investment community in a really
-            substantial way.”
+            In Italy, 63pc are full-time, 16pc are temporary, and 21pc self-employed. Italian workers tend to be more loyal to one employer, with 52pc having stayed in their current role for 10 years.
           </p>
           <p>
-            As sustainability has become more important to companies, it has
-            caused a shift in mindset.
+            Ireland’s statistics are closer to the UK’s, with 77pc in full-time employment, 9pc in temporary employment and 14pc self-employed, and 42pc of workers have stayed in their current role for 10 years.
+          </p>
+          <p>
+            In France, 72pc of workers are full-time, with 17pc on temporary contracts and 11pc self-employed; 46pc of workers have been in their current role for 10 years.
           </p>
         </AnimationTrigger>
         <Pullquote quote>
-          <p>
-            Companies have moved beyond perceiving it as a risk agenda to seeing
-            opportunities for value creation – to a way to create purpose.
-          </p>
           <h3>
-            What is the purpose of our business, beyond the pursuit of profit? A
-            cultural shift is taking place in boardrooms
+            Companies actively seeking skills and experience may have to rethink their recruitment approach. Under 40% of our interviewees said they would go through the traditional job application process to find new or different work.
           </h3>
-          <p>Rob Cameron, SustainAbility</p>
+          <p>
+            Richard Bradley, MD UK & Ireland of staffing company Kelly Services.
+          </p>
         </Pullquote>
+        <AnimationTrigger>
+          <p>
+            This has also filtered down into the way that businesses operate day-to-day. Several companies now offer software such as employee engagement platforms, which integrate messaging with work-related functions such as schedules, delivered via apps.
+          </p>
+          <p>
+            Heathrow and Exclusive Hotels use software from Beekeeper, and have subsequently seen increased employee satisfaction and decreased staff turnover.
+          </p>
+          <p>
+            Cristian Grossmann, chief executive, Beekeeper, says: “You might assume it’s just millennials who want to communicate through a team app, but this is not the case. In fact, the baby-boomer generation has also embraced this tool, and they are adopting communications and information technology at a higher rate than younger generations.
+          </p>
+          <p>
+            “In our experience, we find that all employees, regardless of age or role, want the ability to communicate and feel engaged in the workplace.”
+          </p>
+        </AnimationTrigger>
       </Pagebody>
-      <VerticalSlider />
       <Pagebody
-        title="How can mid-market businesses become more sustainable?"
-        img={howcanTitle}
+        title="The challenges of the 5G workforce..."
+        img={dumbbell}
       >
         <AnimationTrigger>
           <p>
-            The steps that companies can take to become more sustainable are not
-            enormously different to how businesses work day-to-day, says business
-            innovation expert Erica Wolfe-Murray.
+            Employers are responding to the challenges of the multigenerational workforce, says Andy Young, talent and organisation lead at Accenture UK. Mr Young says: “The multiple generations across the UK have more in common than they do differences. The critical need for businesses is to be inclusive of all types of talent.”
           </p>
           <p>
-            The author of Simple Tips, Smart Ideas says: “Companies can apply
-            similar steps to address sustainability as they would normally take to
-            protect profits. The first step has to be an audit, looking at
-            internal systems before reviewing external supply. Heating, power
-            generation, water supply are all key areas.”
+            He says that the rise of technologies such as automation and artificial intelligence (AI) is not a matter of robots taking jobs, but instead poses an opportunity for businesses. “In the age of AI, success will increasingly depend on the collaboration of people and machines. British businesses recognise this future, with 66pc of leaders believing AI will result in net job gains for their organisation in the next three years.”
           </p>
           <p>
-            One of the first steps that companies should take is to audit their
-            supply chain, says Dr Jansen.
-          </p>
-          <p>
-            “Supply chains are responsible for most of the emissions that
-            aggravate climate change impacts,” he says.
+            Mr Young points to Accenture research, which shows that 67pc of workers are keen to learn how to work with intelligent technology in the next three to five years – but only 3pc of executives are offering training in areas such as AI, empathy and complex reasoning for their staff, which he points out are skill sets in growing demand.
           </p>
         </AnimationTrigger>
         <Pullquote quote>
           <h3>
-            About 60% of the carbon footprint of a manufacturing company is in
-            the supply chain
+            Investing in technology is not a magic bullet for companies
           </h3>
-          <p>
-            and for retailers this is as high as 80%. The supply-chain exposure
-            to human rights and social issues is equally high
-          </p>
+          <p>Vincent Belliveau, chief executive EMEA, Cornerstone OnDemand</p>
         </Pullquote>
         <AnimationTrigger>
           <p>
-            Many companies have adopted a “triple bottom line” accounting system,
-            taking into account not only financial but environmental and social
-            results. Such initiatives are popular with consumers, with 85pc of SME
-            bosses saying that they believe customers want them to embrace
-            sustainability, according to NatWest research.
+            He believes it is important to invest in technologies that focus on people, saying: “Invest in systems that will help your employees grow and develop, rather than transactional systems like payroll and time management. Put the emphasis on your people and focus on the technologies that will help your employees prepare for a digitally focused and fast-moving workplace of the future.
           </p>
           <p>
-            Simply starting to monitor such numbers often spurs companies to
-            engage with sustainability in a meaningful way, says Mr Gibbons.
-            “Fundamentally, business people are project-managing,” he says. “The
-            moment you get them to measure something, they have to manage that
-            measurement. If you’re going to measure something like your carbon
-            impact, the next natural thing is to make it lower.”
+            “Identify the areas where innovative technology will make the biggest impact and expand the impact of that technology over time. By integrating technology slowly, you can ensure that it works and that it’s having a measurable impact on employee engagement.”
+          </p>
+          <p>
+            Bruce Morton, talent acquisition expert and author of Redesigning the Way Work Works, says: “First you need to deconstruct, streamline and improve work processes. Survey, or have informal talks with your employees about how work works – and where it doesn’t work quite so well. Rely on them to suggest which tasks are redundant, less efficient or a pain in the neck.
+          </p>
+          <p>
+            “Then huddle with leaders and workers to redefine work patterns, behaviours and workflows. That way, before you even automate or digitise anything you should see real performance shifts. If you’ve made the right changes, productivity will improve. If not, you’ll see where a new approach is necessary.”
+          </p>
+        </AnimationTrigger>
+      </Pagebody>
+      <Pagebody
+        title="… and the international challenges"
+        img={plane}
+      >
+        <AnimationTrigger>
+          <p>
+            And there are other challenges for workforces to contend with, particularly on the international stage. British companies face pressure from global challenges, such as a shortage of digital skills, says Mr Gray. “The UK workforce is under pressure from global trends, including the need to develop tech skills. The lack of qualified talent could stifle the nation’s progress.”
+          </p>
+          <p>
+            But despite this pressure and the steady uncertainty caused by Brexit, Britain remains an attractive labour market, says Mr Gray. “While some UK employers have shifted their local workforce investments, our recent Total Workforce Index reveals that the country’s candidate pool and talent performance remains steady, with the UK ranked the most attractive labour market in EMEA (Europe, the Middle East and Africa).”
           </p>
         </AnimationTrigger>
         <Pullquote>
-          <p>
-            Among larger companies that export globally, sustainability is
-            becoming ever more important, with
-          </p>
           <h3>
-            73.5% agree that sustainability is important, according to
-            NatWest research
+            For businesses, offering flexibility can pay dividends in terms of improving employee engagement and retention, and cutting training costs – both locally and globally.
           </h3>
         </Pullquote>
         <AnimationTrigger>
           <p>
-            Even for medium-sized businesses, frameworks such as the UN
-            Sustainable Development Goals (SDGs) are a useful yardstick, says Prof
-            Wendy Chapple, of Nottingham Business School.
+            A report by the Society for Human Resource Management (SHRM) found that 91pc of HR professionals found that flexible work arrangements positively influence employee engagement, job satisfaction and retention. Employees with workplace flexibility show increased commitment and improved performance, the report found. Pharmaceutical company AstraZeneca conducted a flexibility survey of employees based at its Delaware HQ and 96pc said flexibility influenced their decision to stay at the business.
           </p>
           <p>
-            The SDGs are a set of 17 goals developed by the United Nations that
-            set out targets for a more sustainable world by 2030.
+            Neil Bellamy, head of technology, media and telecommunications, NatWest, says: “The ‘gig economy’ has potentially negative connotations: we prefer to call it the liquid workforce, to reflect the fact that this trend offers lasting opportunities for both employee and employer.
+          </p>
+        </AnimationTrigger>
+        <Pullquote quote>
+          <h3>
+            Companies have traditionally been set up for the industrial age rather than a digital economy, which can potentially result in workers becoming deskilled and/or disengaged.\
+          </h3>
+        </Pullquote>
+        <AnimationTrigger>
+          <p>
+            “Liquid workforces need continuous training, aligned to their personal needs and aspirations. People don’t typically work vertically any more, but come together and share skills in project working groups. They need to be adaptable and ready for change, supported by an innovative management culture of failing fast, working iteratively and being empowered to succeed.”
           </p>
           <p>
-            Prof Chapple says: “Small and medium-sized businesses are often
-            surprised to see that what they are currently doing is in line with
-            the goals. It is a good way to start asking, ‘What could we do
-            better?’ ”
+            Antony Woodcock, co-founder and chief executive at GIG, says: “Millennials want to experience life in a different way to their parents and their approach to work is what differs most. Young workers want work built around their lifestyle, while older generations believe a lifestyle is built around work.
+          </p>
+          <p>
+            “This isn’t to say that security isn’t important to young generations; it’s merely a reflection of how young workers view careers and work in general, which is that it doesn’t have to be 9am-5pm or be contained with the confines of one employer for 40+ years.”
           </p>
         </AnimationTrigger>
       </Pagebody>
       <Timeline
-        title="Sustainability trends that are impacting businesses"
-        items={trendsImpacting}
+        title="How businesses can attract and retain talent"
+        items={retainTalent}
       />
       <Pagebody
-        title="Barriers and opportunities for sustainability in midsized companies"
-        img={barriersTitle}
+        title="How to keep talent"
+        img={trophy}  
       >
         <AnimationTrigger>
           <p>
-            Becoming sustainable is not without pitfalls. Last year, supermarket
-            chain Iceland partnered with Greenpeace on an advert about palm oil,
-            but campaigners then claimed that the chain had not removed palm oil
-            from all its own products.
-          </p>
-        </AnimationTrigger>
-        <Pullquote quote>
-          <p>Martin Newman, chairman of the Customer First Group, says:</p>
-          <h3>Practise what you preach</h3>
-          <p>
-            When you stick your head above the parapet and claim to be socially
-            responsible, you need to ensure you are delivering this across the
-            board
-          </p>
-        </Pullquote>
-        <AnimationTrigger>
-        <p>
-          Staff training in these issues is key, NatWest research has shown.
-          Among medium-sized businesses that have embraced sustainability,
-          86.3pc had invested in training for staff.
-        </p>
-        <p>
-          Some businesses can be reluctant to commit to sustainable policies
-          owing to the perceived cost, says Peter Kelly, managing director,
-          Virgin Media Business, but technology can help.
-        </p>
-        <p>
-          He says: “Businesses feel pressure to balance their short-term bottom
-          line. Technology can help bridge this gap by delivering cost
-          efficiencies while also helping to reduce a company’s environmental
-          impact. For example, connected devices can control environmental
-          conditions in food supply chains to stop food spoiling and reduce
-          waste.”
-        </p>
-        </AnimationTrigger>
-        <Pullquote>
-          <h3>
-            NatWest research shows that 72.7% of midsized British companies have
-            invested in new technology for efficiency
-          </h3>
-        </Pullquote>
-        <AnimationTrigger>
-        <p>
-          British businesses are also embracing energy audits as a way to
-          improve sustainability, with 74.7pc having conducted an energy
-          efficiency audit, NatWest research has shown.
-        </p>
-        <p>
-          NatWest offers business financing based on independent energy audits,
-          with energy-saving proposals financed on the basis of future cost
-          savings.
-        </p>
-        <p>
-          Sustainability also makes good financial sense, and many companies
-          will see instant savings, says Laura Timlin, director at the Carbon
-          Trust, which certifies businesses on their carbon use. She says:
-          “Sustainability is a journey. We know from experience that most
-          businesses will have lots of quick wins that bring immediate cost
-          savings, especially through energy efficiency opportunities.”
-        </p>
-        </AnimationTrigger>
-      </Pagebody>
-      <BasicSlider />
-      <Pagebody title="Looking to the future" img={lookingTitle}>
-        <AnimationTrigger>
-          <p>
-            “I could never understand why we were having the conversation. If you
-            can do things a better way, why not?
+            Retaining talent is a key challenge for modern companies, says Ross Tracey, managing director at Ceridian Europe.
           </p>
           <p>
-            “But the resistance has broadly gone away. Millennials are now the
-            decision makers as well as the consumers, and they are saying, ‘We
-            want to take this seriously.’ ”
+            Mr Tracey says that technology can help companies to retain talent – for instance, by using predictive analytics to work out whether star performers are at risk of leaving.
           </p>
           <p>
-            In fact, by next year millennials will make up more than a third of
-            the workforce worldwide, according to research by ManpowerGroup.
+            But he believes that a shift in the relationship with employees (and taking into account the needs of the 5G workforce) can help companies to retain that talent.
+          </p>
+          <p>
+            He says: “Employers should create flexible strategies to accommodate the unique circumstances of employees’ career and life stages. Employees need clarity on what to expect about compensation, promotions and their career trajectories at the organisation. Regular check-ins keep everyone on the same page.
+          </p>
+          <p>
+            “Shift from a transactional relationship with employees to one of mutual support. Organisations that support the complete financial, physical, social, and emotional well-being of employees, at any stage of life, inspire dedication and loyalty.
+          </p>
+          <p>
+            “Ensure every employee knows the impact they make on company goals, and empower them to drive results,” he says.
           </p>
         </AnimationTrigger>
         <Pullquote quote>
           <h3>
-            I can’t believe how much time I have spent in the past 25 years
-            discussing whether sustainability is good or bad for business
+            To attract and retain talent, employers will have to balance the needs of the multigenerational workforce.
           </h3>
-          <p>Giles Gibbons, founder of Good Business</p>
+          <p>
+            Adrian Wright, principal lecturer at the University of Central Lancashire
+          </p>
         </Pullquote>
         <AnimationTrigger>
-        <p>
-          Ethical and sustainable businesses will inspire other companies in
-          coming decades, says Chris Turner, executive director of B Lab UK. It
-          works with “B corporations”, which are certified every two years for
-          their ethical credentials.
-        </p>
-        <p>
-          Mr Turner says: “Ultimately we see these businesses as the leaders,
-          showing that you can have a really positive impact on the world, and
-          still be really profitable and sustainable over the long term.”
-        </p>
+          <p>
+            Dr Wright says: “According to the 2018 Deloitte Millennial Survey, 50pc of millennials consider flexibility as ‘very important’ when choosing where they work. Employers that proactively cater to the need for flexibility are developing a clear advantage.”
+          </p>
+          <p>
+            He says that different generations may have different needs, such as people with caring responsibilities requiring flexible hours, and that employers need to cater for this.
+          </p>
+          <p>
+            Training is key to making employees feel valued, and technology can help to deliver it, says David Willett, corporate director at the Open University.
+          </p>
+          <p>
+            He says: “Employers need to take a more agile approach when it comes to developing talent. The way in which training it is delivered will need to become more flexible too.”
+          </p>
+          <p>
+            Nick Whiteley, managing director of HFX workforce management and author of Business Innovation: A Little Book of Big Ideas, says: “Treat someone like a robot or clone and they surely will not stay in an organisation. But the right environment and raison d’être can make a difference.
+          </p>
+          <p>
+            “In my view adopting a hive approach to a company is the exact opposite from the autocratic hierarchy – everyone plays a role and can see how their contribution makes a difference. Yet many companies are a long way from this position.”
+          </p>
         </AnimationTrigger>
         <Pullquote quote>
           <h3>
-            Our aim is for these leaders toinspire others that business can bea
-            force for good
+            Workplace culture is the key to attracting and retaining workers of all generations.
           </h3>
-          <p>Chris Turner, executive director of B Lab UK</p>
+          <p>
+            Andy Young, talent and organisation lead at Accenture UK
+          </p>
         </Pullquote>
         <AnimationTrigger>
           <p>
-            He points out that the British Government has already set out
-            ambitious climate goals for 2050. “So far, we’re not doing
-            fantastically well on keeping to these goals, but at least we have
-            something written in law.
+            He says: “Inclusive cultures and teams, where people feel a sense of belonging and feel safe to volunteer a new idea, are higher-performing.”
           </p>
           <p>
-            “The idea of sustainability is really becoming mainstream. As a pillar
-            of society, business will increasingly be involved. We’ll see
-            sustainability switch to an ‘everything agenda’, dealing with
-            everything from environmental issues to inequality. The issues that we
-            today understand as sustainability – these will become everyday issues
-            of corporate life.”
+            Accenture research shows that equal workplaces have six times the level of innovation mindset as the least equal, Mr Young says.
           </p>
-          <p className="footnote">
-            *Based on interviews in 2018 with 861 midsized businesses, with turnovers of £5m to £250m
+          <p>
+            “With real-wage rises since the financial crisis being suppressed in many areas of the labour market, fair pay still matters, but so does the quality of the work and the work environment,” he says. “Most of all, workers are looking for greater freedom, good team environments, skills and career development, and purpose at work – they want ‘good work’.”
           </p>
         </AnimationTrigger>
       </Pagebody>

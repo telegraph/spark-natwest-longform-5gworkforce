@@ -16,12 +16,10 @@ function Hero({img, imgMobile}) {
     <div className="hero">
       <div className={`hero__content ${loaded ? 'visible' : ''}`}>
         <h1>
-          The future
-          <br />
-          of sustainability
+          Future<br />workforce
         </h1>
         <p>
-          Corporate social responsibility is big business - but how can UK business-owners embed sustainability into their workplace cultures?
+          Matching the varying expectations of workers across the five generations now in employment is essential for successful recruitment and retention.
         </p>
       </div>
       <div className={`hero__art ${loaded ? 'visible-art' : ''}`}>

@@ -50,18 +50,24 @@
 
   .slider__bg {
     width: 100vw;
-    background: url('../../assets/office.svg');
+    background: #401663;
     background-size: cover;
     background-position: center;
     height: 80vh;
+
+    img {
+      position: absolute;
+      max-height: 93%;
+    }
+
+
   }
 
   .slider__container {
     position: absolute;
     min-width: 33%;
     min-height: 110px;
-    background: #401663;
-    top: 26%;
+    top: 31%;
     right: 50%;
     transform: translateX(50%);
     border-radius: 10px;

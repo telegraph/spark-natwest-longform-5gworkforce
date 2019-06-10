@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Bubble from './subcomponents/Bubble';
-import BackgroundBubble from './subcomponents/BackgroundBubble';
 
-import { verticalSlider } from '../../data';
+import Bubble from './subcomponents/Bubble';
+import Bubbles from '../Bubbles';
+
+// import { verticalSlider } from '../../data';
 
 import './style.scss';
 
@@ -71,24 +72,7 @@ function VerticalSlider() {
   return (
     <div className="vertical-slider" ref={bubbleSlider}>
       <h2 className={`vertical-slider__title ${fixed ? 'fixed' : ''} ${titleFade ? 'fade' : ''}`} ref={bubbleTitle}>Sustainability in numbers</h2>
-      <div id="parallax-container">
-        <BackgroundBubble pos={{ top: '10%', left: '1vw' }} speed={200} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '30%', left: '20vw' }} speed={80} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '40%', left: '50vw' }} speed={30} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '50%', left: '10vw' }} speed={100} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '60%', left: '30vw' }} speed={100} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '70%', left: '50vw' }} speed={100} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '80%', left: '65vw' }} speed={100} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '90%', left: '45vw' }} speed={100} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '20%', left: '90vw' }} speed={200} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '30%', left: '80vw' }} speed={80} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '40%', left: '70vw' }} speed={30} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '50%', left: '60vw' }} speed={100} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '60%', left: '70vw' }} speed={100} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '70%', left: '80vw' }} speed={100} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '80%', left: '90vw' }} speed={100} conDimen={conDimensions} />
-        <BackgroundBubble pos={{ top: '90%', left: '70vw' }} speed={100} conDimen={conDimensions} />
-      </div>
+      <Bubbles lessBubbles />
       <div className="vertical-slider__container">
         {data.map((item, i) => {
           return (
