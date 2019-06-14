@@ -6,17 +6,14 @@ import { FiveGTimeline, retainTalent } from './data';
 import analytics from './helpers/analytics';
 
 // Components
-import Loader from './components/Loader';
 import Header from './components/Header';
 import Share from './components/Share';
 import Hero from './components/Hero';
 import Pagebody from './components/Pagebody';
 import Dropcap from './components/Dropcap';
 import Pullquote from './components/Pullquote';
-import PullQuoteSpecial from './components/Pullquote/subcomponents/PullQuoteSpecial';
 import CTA from './components/CTA';
 import Button from './components/Button';
-import Title from './components/Title';
 import Timeline from './components/Timeline';
 import Slider from './components/Slider';
 import Related from './components/Related';
@@ -26,7 +23,7 @@ import Socials from './components/Socials';
 import AnimationTrigger from './components/AnimationTrigger';
 
 // Assets
-import heroImg from './assets/hero_desktop.svg';
+import HeroSVG from './components/svgs/HeroSVG';
 import ladder from './assets/titles/ladder.svg';
 import globe from './assets/titles/globe.svg';
 import dumbbell from './assets/titles/dumbbell.svg';
@@ -64,7 +61,7 @@ function App() {
   return (
     <>
       <Header progress={progress} />
-      <Hero img={heroImg} />
+      <Hero />
       <Pagebody>
         <AnimationTrigger>
           <p>
@@ -82,6 +79,7 @@ function App() {
       <Timeline
         title="The 5G Workforce"
         items={FiveGTimeline}
+        oneLineTitle
       />
       <Pagebody title="The rise of the 5G workforce" img={ladder}>
         <AnimationTrigger>
@@ -274,7 +272,7 @@ function App() {
       />
       <Pagebody
         title="How to keep talent"
-        img={trophy}  
+        img={trophy}
       >
         <AnimationTrigger>
           <p>

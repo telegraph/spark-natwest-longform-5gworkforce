@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import HeroSVG from '../svgs/HeroSVG';
 import ReadMore from '../ReadMore';
 
 import './style.scss';
 
-function Hero({img, imgMobile}) {
+function Hero() {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     // On mount
@@ -23,8 +24,7 @@ function Hero({img, imgMobile}) {
         </p>
       </div>
       <div className={`hero__art ${loaded ? 'visible-art' : ''}`}>
-        <img className="art-desktop" src={img} alt="Hero" />
-        <img className="art-mobile" src={imgMobile} alt="Hero" />
+        <HeroSVG />
       </div>
       <ReadMore content="Scroll to read on" />
     </div>

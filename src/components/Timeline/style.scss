@@ -45,6 +45,10 @@
     top: 110px;
   }
 
+  .oneLine:before {
+    height: 410%;
+  }
+
   .slides {
     height: 85vh;
     width: 100%;
@@ -73,6 +77,16 @@
       padding: 20px;
       width: 100%;
 
+      .svg-container {
+        text-align: center;
+        max-width: 350px;
+        margin: 0 auto;
+
+        svg {
+          max-width: 350px;
+        }
+      }
+
       h4 {
         text-align: center;
         font-family: "RN House Sans", arial, sans-serif;
@@ -80,6 +94,17 @@
         line-height: 30px;
         font-weight: normal;
         color: white;
+        margin-bottom: 7px;
+      }
+
+      h5 {
+        text-align: center;
+        font-family: "RN House Sans", arial, sans-serif;
+        font-size: 30px;
+        line-height: 30px;
+        font-weight: normal;
+        color: #00B6BE;
+        margin: 0;
       }
 
       p {

@@ -54,6 +54,7 @@
     background-size: cover;
     background-position: center;
     height: 80vh;
+    overflow: hidden;
 
     img {
       position: absolute;
@@ -66,8 +67,8 @@
   .slider__container {
     position: absolute;
     min-width: 33%;
-    min-height: 110px;
-    top: 31%;
+    min-height: 240px;
+    top: 22%;
     right: 50%;
     transform: translateX(50%);
     border-radius: 10px;
@@ -81,6 +82,16 @@
       transition: opacity 0.3s, transform 0.4s;
       transform: translateX(-100%);
       text-align: center;
+
+      h4 {
+        color: #fff;
+        font-size: 45px;
+        margin: 0;
+      }
+
+      p {
+        color: #fff;
+      }
 
       &.visible {
         opacity: 1;

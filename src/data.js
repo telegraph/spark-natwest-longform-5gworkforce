@@ -1,9 +1,9 @@
 //Timeline imports
-import pocketWatch from './assets/5g-workforce/pocket_watch.svg';
+import pocketWatch from './components/svgs/pocketWatchSVG';
 import brickPhone from './assets/5g-workforce/brick_phone.svg';
 import computer from './assets/5g-workforce/computer.svg';
 import dummy from './assets/5g-workforce/dummy.svg';
-import boombox from './assets/5g-workforce/boombox.svg';
+import boombox from './components/svgs/BoomboxSVG';
 
 // Timeline 2 imports
 import books from './assets/retain-talent/books.svg';
@@ -117,31 +117,31 @@ export const skylineSlider = [
 
 export const retainTalent = [
   {
-    img: clock,
+    img: pocketWatch,
     title: 'Offer flexible working arrangements',
     copy:
       'Up to 91pc of HR professionals say flexible working improves relationships with employees',
   },
   {
-    img: handsShaking,
+    img: pocketWatch,
     title: 'Be inclusive',
     copy:
       'Accenture research finds that working cultures where employees are treated as equals are six times more productive',
   },
   {
-    img: books,
+    img: pocketWatch,
     title: 'Offer the right training',
     copy:
       'Two-thirds of employees want to train to learn new digital skills, according to Accenture research',
   },
   {
-    img: parasol,
+    img: pocketWatch,
     title: 'Allowing workers to “buy” holidays',
     copy:
       'Employers can allow employees to “buy” extra annual leave to offer more flexibility on holidays',
   },
   {
-    img: plant,
+    img: pocketWatch,
     title: 'Have a business with a purpose',
     copy:
       'For younger workers, the purpose of a business is increasingly important, with 86pc of millennials saying they would leave an employer whose values no longer matched theirs',

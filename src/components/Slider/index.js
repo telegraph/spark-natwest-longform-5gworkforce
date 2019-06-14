@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-
 import { skylineSlider } from '../../data';
-
-import skylineImg from '../../assets/skyline.svg';
+import SkylineSVG from '../svgs/SkylineSVG';
 import officeSliderCube from '../../assets/office-slider-cube.svg';
 
 import './style.scss';
@@ -54,11 +52,11 @@ function Slider() {
 
   return (
     <div className="slider">
-      <h2 className="slider__title">
+      {/* <h2 className="slider__title">
         The sustainable office
-      </h2>
+      </h2> */}
       <div className="slider__bg">
-      <img src={skylineImg} alt="Skyline" />
+        <SkylineSVG />
       </div>
       <div className="slider__container">
         {items.map((item, i) => (

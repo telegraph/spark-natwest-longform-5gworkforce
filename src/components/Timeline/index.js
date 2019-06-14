@@ -12,7 +12,7 @@ import './style.scss';
 // const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`;
 // const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
 
-function Timeline({ title, items }) {
+function Timeline({ title, items, oneLineTitle }) {
   // Set state
   const [fixed, updateFixed] = useState(false);
   const [titleFade, triggerTitleFade] = useState(false);
@@ -55,26 +55,31 @@ function Timeline({ title, items }) {
 
   return (
     <div className="scrollGallery" ref={timeLine}>
-      <Bubbles />
-      <h3 className={`scrollGallery__title ${fixed ? 'fixed' : ''} ${titleFade ? 'fade' : ''}`} ref={timelineTitle}>
+      <h3 className={`scrollGallery__title ${fixed ? 'fixed' : ''} ${titleFade ? 'fade' : ''} ${oneLineTitle ? 'oneLine' : ''}`} ref={timelineTitle}>
         {title}
       </h3>
       {items.map((item, i) => {
         return (
           <div className={`slides`} key={`slide-${i + 1}`}>
             <div className="text-box">
-            <img className="image" src={item.img} alt={item.date} />
+              <div className="svg-container">
+                {typeof (item.img) !== 'function'
+                  ? <img src={item.img} alt="yo" />
+                  : <item.img />
+                }
+              </div>
               <h4>
                 {item.title}
               </h4>
-              <h4>
+              <h5>
                 {item.date}
-              </h4>
+              </h5>
               <p>{item.copy}</p>
             </div>
           </div>
         );
       })}
+      <Bubbles />
     </div>
   );
 }
