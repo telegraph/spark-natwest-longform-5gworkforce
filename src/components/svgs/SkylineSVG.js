@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './style.scss';
 
 import { TimelineMax, Linear } from 'gsap';
@@ -9,7 +9,97 @@ import { TimelineMax, Linear } from 'gsap';
 //   });
 // }
 
+function Animations(refs) {
+
+  const { 
+    car1,
+    car2,
+    car3,
+    car4,
+    car5,
+    car6,
+    car7,
+    plane,
+    skyline,
+   } = refs;
+
+   console.log(refs);
+
+  const car1TL = new TimelineMax({ repeat: -1, repeatDelay: 2, paused: true });
+  car1TL
+    .to(car1.current, 10, {x: `400%`, y: `300%`}, 0)
+    .to(car1.current, 1, {opacity: 1}, 0)
+    .to(car1.current, 1, {opacity: 0}, 3);
+
+  const car2TL = new TimelineMax({ repeat: -1, paused: true });
+  car2TL
+    .to(car2.current, 10, {x: `-400%`, y: `300%`}, 0)
+    .to(car2.current, 1, {opacity: 1}, 0)
+    .to(car2.current, 1, {opacity: 0}, 9);
+
+  const car3TL = new TimelineMax({ repeat: -1, paused: true });
+  car3TL
+    .to(car3.current, 10, {x: `400%`, y: `300%`}, 0)
+    .to(car3.current, 1, {opacity: 1}, 0)
+    .to(car3.current, 1, {opacity: 0}, 9);
+
+  const car4TL = new TimelineMax({ repeat: -1, repeatDelay: 1, paused: true });
+  car4TL
+    .to(car4.current, 10, {x: `400%`, y: `300%`}, 0)
+    .to(car4.current, 1, {opacity: 1}, 0)
+    .to(car4.current, 1, {opacity: 0}, 2);
+
+  const car5TL = new TimelineMax({ repeat: -1, paused: true });
+  car5TL
+    .to(car5.current, 10, {x: `400%`, y: `300%`}, 0)
+    .to(car5.current, 1, {opacity: 1}, 0)
+    .to(car5.current, 1, {opacity: 0}, 9);
+
+  const car6TL = new TimelineMax({ repeat: -1, paused: true });
+  car6TL
+    .to(car6.current, 10, {x: `-400%`, y: `300%`}, 0)
+    .to(car6.current, 1, {opacity: 1}, 0)
+    .to(car6.current, 1, {opacity: 0}, 9);
+
+  const car7TL = new TimelineMax({ repeat: -1, paused: true });
+  car7TL
+    .to(car7.current, 10, {x: `400%`, y: `300%`}, 0)
+    .to(car7.current, 1, {opacity: 1}, 0)
+    .to(car7.current, 1, {opacity: 0}, 9);
+
+  const planeTL = new TimelineMax({ repeat: -1, paused: true });
+  planeTL
+    .to(plane.current, 20, { ease: Linear.easeNone, x: `-600%`, y: `500%`}, 0)
+    .to(plane.current, 1, { ease: Linear.easeNone, opacity: 1}, 0)
+    .to(plane.current, 1, { ease: Linear.easeNone, opacity: 0}, 19);
+
+   return (playing) => {
+    if (playing) {
+      car1TL.restart();
+      car2TL.restart();
+      car3TL.restart();
+      car4TL.restart();
+      car5TL.restart();
+      car6TL.restart();
+      car7TL.restart();
+      planeTL.restart();
+    } else if (!playing) {
+      console.log('not playing');
+      car1TL.pause(0);
+      car2TL.pause(0);
+      car3TL.pause(0);
+      car4TL.pause(0);
+      car5TL.pause(0);
+      car6TL.pause(0);
+      car7TL.pause(0);
+      planeTL.pause(0);
+    }
+    console.log(playing);
+   }
+}
+
 export default function SkylineSVG() {
+
   const car1 = useRef(null);
   const car2 = useRef(null);
   const car3 = useRef(null);
@@ -20,78 +110,70 @@ export default function SkylineSVG() {
   const plane = useRef(null);
   const skyline = useRef(null);
 
-  var lastScrollY = 0;
-  var ticking = false;
+  const [togglePlay, setTogglePlay] = useState({
+    callback: () => {},
+    set: false,
+  });
 
-  function update(ref) {
-    const elVisible = ref.current.getBoundingClientRect().bottom - window.innerHeight;
-    console.log(elVisible);
+  let playing = false;
+  let lastScrollY = 0;
+  let ticking = false;
+
+  const update = (refEl) => {
+    const wh = window.innerHeight;
+    const { top, bottom } = refEl.current.getBoundingClientRect();
+    const elVisible = bottom - wh;
+    console.log(togglePlay);
+    if (elVisible < 0 && !playing) {
+      playing = true;
+      togglePlay.callback(playing);
+    } else if (top > wh) {
+      console.log('pausing');
+      playing = false;
+      togglePlay.callback(playing);
+    }
+    console.log(elVisible, top, wh);
     ticking = false;
-  };
+  }
 
-  function requestTick(ref) {
+const requestTick = refEl => {
     if (!ticking) {
-      window.requestAnimationFrame(SkylineSVG.update.bind(update));
+      // window.requestAnimationFrame(() => update(refEl));
+      update(refEl);
       ticking = true;
     }
-  };
+  }
 
-  function onScroll(ref) {
+  const onScroll = (refEl) => {
     lastScrollY = window.scrollY;
-    requestTick(ref);
-  };
-
+    requestTick(refEl);
+  }
+  useEffect(() => {
+    // On mount
+    window.addEventListener('scroll', () => onScroll(skyline));
+    return function cleanup() {
+      window.removeEventListener('scroll', () => onScroll(skyline));
+    }   
+  });
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll(skyline));
-    const car1TL = new TimelineMax({ repeat: -1, repeatDelay: 2, paused: true });
-    car1TL
-      .to(car1.current, 10, {x: `400%`, y: `300%`}, 0)
-      .to(car1.current, 1, {opacity: 1}, 0)
-      .to(car1.current, 1, {opacity: 0}, 3);
-
-    const car2TL = new TimelineMax({ repeat: -1, paused: true });
-    car2TL
-      .to(car2.current, 10, {x: `-400%`, y: `300%`}, 0)
-      .to(car2.current, 1, {opacity: 1}, 0)
-      .to(car2.current, 1, {opacity: 0}, 9);
-
-    const car3TL = new TimelineMax({ repeat: -1, paused: true });
-    car3TL
-      .to(car3.current, 10, {x: `400%`, y: `300%`}, 0)
-      .to(car3.current, 1, {opacity: 1}, 0)
-      .to(car3.current, 1, {opacity: 0}, 9);
-
-    const car4TL = new TimelineMax({ repeat: -1, repeatDelay: 1, paused: true });
-    car4TL
-      .to(car4.current, 10, {x: `400%`, y: `300%`}, 0)
-      .to(car4.current, 1, {opacity: 1}, 0)
-      .to(car4.current, 1, {opacity: 0}, 2);
-
-    const car5TL = new TimelineMax({ repeat: -1, paused: true });
-    car5TL
-      .to(car5.current, 10, {x: `400%`, y: `300%`}, 0)
-      .to(car5.current, 1, {opacity: 1}, 0)
-      .to(car5.current, 1, {opacity: 0}, 9);
-
-    const car6TL = new TimelineMax({ repeat: -1, paused: true });
-    car6TL
-      .to(car6.current, 10, {x: `-400%`, y: `300%`}, 0)
-      .to(car6.current, 1, {opacity: 1}, 0)
-      .to(car6.current, 1, {opacity: 0}, 9);
-
-    const car7TL = new TimelineMax({ repeat: -1, paused: true });
-    car7TL
-      .to(car7.current, 10, {x: `400%`, y: `300%`}, 0)
-      .to(car7.current, 1, {opacity: 1}, 0)
-      .to(car7.current, 1, {opacity: 0}, 9);
-
-    const planeTL = new TimelineMax({ repeat: -1, paused: true });
-    planeTL
-      .to(plane.current, 20, { ease: Linear.easeNone, x: `-600%`, y: `500%`}, 0)
-      .to(plane.current, 1, { ease: Linear.easeNone, opacity: 1}, 0)
-      .to(plane.current, 1, { ease: Linear.easeNone, opacity: 0}, 19);
-  }, []);
+    if (!togglePlay.set && car1.current && car2.current && car3.current && car4.current && car5.current && car6.current && car7.current && plane.current && skyline.current) {
+      console.log('ran');
+      console.log(car7.current);
+      setTogglePlay({callback: Animations({ 
+        car1,
+        car2,
+        car3,
+        car4,
+        car5,
+        car6,
+        car7,
+        plane,
+        skyline,
+       }),
+      set: true,});
+    }
+  })
 
 
   return (
