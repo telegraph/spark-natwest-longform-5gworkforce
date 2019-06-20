@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { skylineSlider } from '../../data';
-import SkylineSVG from '../svgs/SkylineSVG';
+import skylineImg from '../../assets/skyline.svg';
 import officeSliderCube from '../../assets/office-slider-cube.svg';
 
 import './style.scss';
+import SkylineSVG from '../svgs/SkylineSVG';
 
 function Slider() {
   const [items, setItems] = useState([]);
   const [currentItem, changeCurrentItem] = useState(0);
   const [itemProgress, changeItemProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const points = useRef(null);
 
@@ -25,6 +27,15 @@ function Slider() {
     // on Mount
     setItems(skylineSlider);
   }, []);
+
+  useEffect(() => {
+    let width = window.innerWidth;
+    if (width < 970) {
+      setIsMobile(true);
+    } else if (width > 970) {
+      setIsMobile(false);
+    }
+  });
 
   useEffect(() => {
     // Whenever currentItem is updated...
@@ -56,7 +67,7 @@ function Slider() {
         The sustainable office
       </h2> */}
       <div className="slider__bg">
-        <SkylineSVG />
+        <SkylineSVG isMobile={isMobile} />
       </div>
       <div className="slider__container">
         {items.map((item, i) => (
@@ -74,7 +85,7 @@ function Slider() {
         <div className="slider-total">
           {`${currentItem + 1} of ${items.length}`}
         </div>
-        <div role="button" className={`slider-cont slider-next ${currentItem >= 16 ? 'noclick' : ''}`} onClick={() => nextItem()} />
+        <div role="button" className={`slider-cont slider-next ${currentItem >= 7 ? 'noclick' : ''}`} onClick={() => nextItem()} />
       </div>
       <div className="slider__progress">
         <div className="progress-points" ref={points}>

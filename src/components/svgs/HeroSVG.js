@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
-import { TweenMax, TimelineMax, Elastic, Power3 } from 'gsap';
+import { TweenMax, TimelineMax, Elastic, Power3, Power1 } from 'gsap';
 
 import './style.scss';
 
@@ -22,6 +22,11 @@ export default function HeroSVG() {
   // Define 3d Printer ref
   const ThreeDPrinter = useRef(null);
 
+  // Robot parts
+  const strutMain = useRef(null);
+  const strutTop = useRef(null);
+
+  // Container for all svg sections
   const cont1Printer = useRef(null);
   const cont2Wifi = useRef(null);
   const cont3Watch = useRef(null);
@@ -31,11 +36,10 @@ export default function HeroSVG() {
   const cont7Cyl = useRef(null);
   const cont8Robot = useRef(null);
 
-  const cylLiquid = useRef(null);
-
   useEffect(() => {
+    // On Mount
     const elFadeIn = new TimelineMax({ paused: true });
-
+    // Fade in all elements on mount
     elFadeIn
       .fromTo(cont1Printer.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 0)
       .fromTo(cont2Wifi.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 0.15)
@@ -53,9 +57,9 @@ export default function HeroSVG() {
 
     const wifiTL = new TimelineMax({ repeat: -1, yoyo: true });
     wifiTL
-      .to(wifiSmall.current, 1, { opacity: 1 })
-      .to(wifiMed.current, 1, { opacity: 1 })
-      .to(wifiLarge.current, 1, { opacity: 1 });
+      .fromTo(wifiSmall.current, 1, { opacity: 0 }, { opacity: 1 })
+      .fromTo(wifiMed.current, 1, { opacity: 0 }, { opacity: 1 })
+      .fromTo(wifiLarge.current, 1, { opacity: 0 }, { opacity: 1 });
 
     const msg1TL = new TimelineMax({ repeat: -1, yoyo: true });
 
@@ -64,21 +68,19 @@ export default function HeroSVG() {
       .to(msg1Bub2.current, 2, { ease: Elastic.easeInOut.config(1.75, 0.3), x: 0, y: -5 }, 0.1)
       .to(msg1Bub1.current, 2, { ease: Elastic.easeInOut.config(1.75, 0.3), x: 0, y: -5 }, 0.2);
 
-    // const msg2TL = new TimelineMax({ repeat: -1, yoyo: true, delay: 2.5 });
-
-    // msg2TL
-    //   .to(msg2Bub3.current, 2, { ease: Elastic.easeInOut.config(1.75, 0.3), x: 0, y: -5 }, 0)
-    //   .to(msg2Bub2.current, 2, { ease: Elastic.easeInOut.config(1.75, 0.3), x: 0, y: -5 }, 0.1)
-    //   .to(msg2Bub1.current, 2, { ease: Elastic.easeInOut.config(1.75, 0.3), x: 0, y: -5 }, 0.2);
-
     const threeDpTL = new TimelineMax({ repeat: -1, yoyo: true });
     threeDpTL
-      .to(ThreeDPrinter.current, 2, { x: 15, y: -10 });
+      .to(ThreeDPrinter.current, 5, { x: 15, y: -10 });
+
+    const strutMove = new TimelineMax({ repeat: -1, yoyo: true });
+    strutMove
+      .fromTo(strutMain.current, 8, { ease: Power3.easeInOut, rotation: -20, scale: 1, transformOrigin: 'bottom bottom'}, {rotation: 30, scale: 0.9}, 0)
+      .fromTo(strutTop.current, 8, { ease: Power3.easeInOut, y: -15, x: -35, scale: 1 }, { y: 25, x: 45, scale: 0.95 }, 0);
   }, []);
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-id="Layer_1" width="683.2" height="424.1" data-name="Layer 1">
+id="Layer_1" viewBox=" 0 0 683.2 424.1" data-name="Layer 1">
     <defs>
         <linearGradient id="linear-gradient" x1="403.9" x2="488.4" y1="353.6"
         y2="313.2" gradientTransform="matrix(1 0 0 -1 0 426)" gradientUnits="userSpaceOnUse">
@@ -207,38 +209,7 @@ id="Layer_1" width="683.2" height="424.1" data-name="Layer 1">
         />
         <path fill="url(#linear-gradient-4)" d="M136.6 236.1c0 2.3 1.5 4.5 4.4 6.2a23.6 23.6 0 0 0 21.5 0c3-1.7 4.4-4 4.4-6.2v-22.4h-30.3z"
         />
-        <path fill="#f8f4fa" d="M151.6 100.8c-1.2-.7-2.8-.6-4.6.5l-.8.5-59.3 39a11.2 11.2 0 0 0-5.1 8.8 4 4 0 0 0 1 2.9l6.2 3.8 68.7-51.9z"
-        />
-        <path fill="url(#linear-gradient-5)" d="M93 144.5l59.2-39 .8-.6c3.6-2 6.6-.4 6.6 3.7A14.3 14.3 0 0 1 153 120l-60.2 36.3c-2.8 1.6-5 .3-5-3a11.2 11.2 0 0 1 5-8.7z"
-        />
-        <path fill="#4a6cb7" d="M153 107a10.2 10.2 0 0 0-4.6 8c0 3 2.1 4.2 4.7 2.7a10.2 10.2 0 0 0 4.6-8c0-3-2.1-4.1-4.6-2.7z"
-        />
-        <path fill="#4a6cb8" d="M93 147a6.3 6.3 0 0 0-3 5c0 1.8 1.4 2.5 3 1.6a6.3 6.3 0 0 0 2.8-5c0-1.7-1.3-2.5-2.9-1.6z"
-        />
-        <polygon fill="#f8f4fa" points="79.6 157.5 93.4 165.5 107.2 157.5 93.4 149.5 79.6 157.5"
-        />
-        <polygon fill="#f8f4fa" points="79.6 157.5 79.6 164.3 93.4 172.3 93.4 165.5 79.6 157.5"
-        />
-        <polygon fill="url(#linear-gradient-6)" points="107.2 157.5 107.2 164.3 93.4 172.3 93.4 165.5 107.2 157.5"
-        />
-        <polygon fill="#33c0c9" points="21.6 158.7 55 178.1 88.6 158.7 55.2 139.3 21.6 158.7"
-        />
-        <polygon fill="#fff" points="59.8 164.3 69.2 169.8 74.3 166.9 64.9 161.4 59.8 164.3"
-        />
-        <polygon fill="#4a6cb7" points="21.6 158.7 21.6 192.4 55 211.8 55 178.1 21.6 158.7"
-        />
-        <polygon fill="#00b0bc" points="88.6 158.7 88.6 192.4 55 211.8 55 178.1 88.6 158.7"
-        />
-        <polygon fill="#f8f4fa" points="74.3 166.9 74.3 176.8 69.2 179.6 69.2 169.8 74.3 166.9"
-        />
-        <polygon fill="#fff" points="36 150.3 45.5 155.8 50.5 152.9 41.1 147.4 36 150.3"
-        />
-        <polygon fill="#fff" points="77.6 181.5 79.1 182.4 92.9 172.3 88.6 169.7 88.6 173.6 77.6 181.5"
-        />
-        <polygon fill="#f8f4fa" points="77.6 181.5 77.6 188.4 79.1 189.3 79.1 182.4 77.6 181.5"
-        />
-        <polygon fill="url(#linear-gradient-7)" points="92.9 172.3 92.9 181.3 79.1 189.3 79.1 182.4 92.9 172.3"
-        />
+        
         <path fill="#fff" d="M154 180.1c-2-1-4.8-1-7.8.8-1 .6-27.3 20-27.3 20a18.5 18.5 0 0 0-8.5 14.5c0 2.7 1 4.6 2.5 5.5l5.5 3.3s42.5-39.6 42.2-40-6.7-4-6.7-4z"
         />
         <path fill="url(#linear-gradient-8)" d="M124.6 204.3s26.4-19.4 27.3-20c6-3.4 11-.6 11 6.3s-4.9 15.3-10.9 18.8l-27.4 14.3c-4.6 2.7-8.4.5-8.4-4.8s3.7-11.9 8.4-14.6z"
@@ -247,19 +218,46 @@ id="Layer_1" width="683.2" height="424.1" data-name="Layer 1">
         />
         <path fill="#4a6cb7" d="M125 210.5a8.3 8.3 0 0 0-3.8 6.5c0 2.4 1.7 3.4 3.8 2.2a8.3 8.3 0 0 0 3.8-6.6c0-2.4-1.8-3.3-3.8-2.1z"
         />
-        <path fill="#f8f4fa" d="M126.8 229.3l-6.6-4a8.3 8.3 0 0 1-3.8-9.3l28.7-104.5 9.5-5.9 14.1 8.1-19.3 85z"
-        />
-        <polygon fill="url(#linear-gradient-9)" points="136.7 215.9 159.2 119.5 145.1 111.5 154.6 105.6 168.8 113.8 149.4 198.7 136.7 215.9"
-        />
-        <polygon fill="#f8f4fa" points="145.1 111.5 152.2 115.5 159.2 119.5 167.9 114.2 161.5 109.6 154.6 105.6 145.1 111.5"
-        />
-        <path fill="#fff" d="M167.8 188.6c-2-1.1-4.7-1-7.7.8-1 .5-27.4 19.9-27.4 19.9a18.6 18.6 0 0 0-8.4 14.6c0 2.7 1 4.6 2.5 5.4l5.5 3.3s42.5-39.6 42.1-39.8l-6.6-4.2z"
-        />
-        <path fill="url(#linear-gradient-10)" d="M138.4 212.8s26.4-19.4 27.4-20c6-3.4 10.9-.6 11 6.3s-5 15.3-11 18.8l-27.3 14.3c-4.7 2.7-8.5.5-8.5-4.8s3.8-12 8.4-14.7z"
-        />
-        <path fill="#4a6cb8" d="M166.9 196.8a14.3 14.3 0 0 0-6.5 11.2c0 4.1 3 5.8 6.5 3.7a14.3 14.3 0 0 0 6.5-11.2c0-4.1-2.9-5.8-6.5-3.7zM138.8 219a8.3 8.3 0 0 0-3.7 6.5c0 2.4 1.7 3.3 3.8 2.1a8.3 8.3 0 0 0 3.7-6.5c0-2.4-1.7-3.4-3.8-2.2z"
-        />
-        <path fill="#f8f4fa" d="M165 109.6c-1.3-.6-2.9-.5-4.7.5l-.8.5-59.3 39a11.2 11.2 0 0 0-5.1 8.9 4 4 0 0 0 .9 2.8l6.3 3.8 68.7-51.8z"
+        <g id="strut-main" ref={strutMain}>
+          <path fill="#f8f4fa" d="M126.8 229.3l-6.6-4a8.3 8.3 0 0 1-3.8-9.3l28.7-104.5 9.5-5.9 14.1 8.1-19.3 85z"
+          />
+          <polygon fill="url(#linear-gradient-9)" points="136.7 215.9 159.2 119.5 145.1 111.5 154.6 105.6 168.8 113.8 149.4 198.7 136.7 215.9"
+          />
+        </g>
+        <g id="strut-top" ref={strutTop}>
+          <path fill="#f8f4fa" d="M151.6 100.8c-1.2-.7-2.8-.6-4.6.5l-.8.5-59.3 39a11.2 11.2 0 0 0-5.1 8.8 4 4 0 0 0 1 2.9l6.2 3.8 68.7-51.9z"
+          />
+          <path fill="url(#linear-gradient-5)" d="M93 144.5l59.2-39 .8-.6c3.6-2 6.6-.4 6.6 3.7A14.3 14.3 0 0 1 153 120l-60.2 36.3c-2.8 1.6-5 .3-5-3a11.2 11.2 0 0 1 5-8.7z"
+          />
+          <path fill="#4a6cb7" d="M153 107a10.2 10.2 0 0 0-4.6 8c0 3 2.1 4.2 4.7 2.7a10.2 10.2 0 0 0 4.6-8c0-3-2.1-4.1-4.6-2.7z"
+          />
+          <path fill="#4a6cb8" d="M93 147a6.3 6.3 0 0 0-3 5c0 1.8 1.4 2.5 3 1.6a6.3 6.3 0 0 0 2.8-5c0-1.7-1.3-2.5-2.9-1.6z"
+          />
+          <polygon fill="#f8f4fa" points="79.6 157.5 93.4 165.5 107.2 157.5 93.4 149.5 79.6 157.5"
+          />
+          <polygon fill="#f8f4fa" points="79.6 157.5 79.6 164.3 93.4 172.3 93.4 165.5 79.6 157.5"
+          />
+          <polygon fill="url(#linear-gradient-6)" points="107.2 157.5 107.2 164.3 93.4 172.3 93.4 165.5 107.2 157.5"
+          />
+          <polygon fill="#33c0c9" points="21.6 158.7 55 178.1 88.6 158.7 55.2 139.3 21.6 158.7"
+          />
+          <polygon fill="#fff" points="59.8 164.3 69.2 169.8 74.3 166.9 64.9 161.4 59.8 164.3"
+          />
+          <polygon fill="#4a6cb7" points="21.6 158.7 21.6 192.4 55 211.8 55 178.1 21.6 158.7"
+          />
+          <polygon fill="#00b0bc" points="88.6 158.7 88.6 192.4 55 211.8 55 178.1 88.6 158.7"
+          />
+          <polygon fill="#f8f4fa" points="74.3 166.9 74.3 176.8 69.2 179.6 69.2 169.8 74.3 166.9"
+          />
+          <polygon fill="#fff" points="36 150.3 45.5 155.8 50.5 152.9 41.1 147.4 36 150.3"
+          />
+          <polygon fill="#fff" points="77.6 181.5 79.1 182.4 92.9 172.3 88.6 169.7 88.6 173.6 77.6 181.5"
+          />
+          <polygon fill="#f8f4fa" points="77.6 181.5 77.6 188.4 79.1 189.3 79.1 182.4 77.6 181.5"
+          />
+          <polygon fill="url(#linear-gradient-7)" points="92.9 172.3 92.9 181.3 79.1 189.3 79.1 182.4 92.9 172.3"
+          />
+                  <path fill="#f8f4fa" d="M165 109.6c-1.3-.6-2.9-.5-4.7.5l-.8.5-59.3 39a11.2 11.2 0 0 0-5.1 8.9 4 4 0 0 0 .9 2.8l6.3 3.8 68.7-51.8z"
         />
         <path fill="url(#linear-gradient-11)" d="M106.2 153.3l59.4-39a7.2 7.2 0 0 1 .8-.5c3.6-2.1 6.5-.4 6.5 3.7a14.3 14.3 0 0 1-6.5 11.2l-60.1 36.4c-2.9 1.6-5.2.3-5.2-3a11.2 11.2 0 0 1 5.1-8.8z"
         />
@@ -267,6 +265,15 @@ id="Layer_1" width="683.2" height="424.1" data-name="Layer 1">
         />
         <path fill="none" stroke="#fff" strokeMiterlimit="10" strokeWidth="0.8"
         d="M118.1 155.1v5.2a6.3 6.3 0 0 1-3 5.4l-14.4 8.6a1.8 1.8 0 0 1-2.4-.6 1.8 1.8 0 0 1-.2-1V167"
+        />
+        <polygon fill="#f8f4fa" points="145.1 111.5 152.2 115.5 159.2 119.5 167.9 114.2 161.5 109.6 154.6 105.6 145.1 111.5"
+        />
+        </g>
+        <path fill="#fff" d="M167.8 188.6c-2-1.1-4.7-1-7.7.8-1 .5-27.4 19.9-27.4 19.9a18.6 18.6 0 0 0-8.4 14.6c0 2.7 1 4.6 2.5 5.4l5.5 3.3s42.5-39.6 42.1-39.8l-6.6-4.2z"
+        />
+        <path fill="url(#linear-gradient-10)" d="M138.4 212.8s26.4-19.4 27.4-20c6-3.4 10.9-.6 11 6.3s-5 15.3-11 18.8l-27.3 14.3c-4.7 2.7-8.5.5-8.5-4.8s3.8-12 8.4-14.7z"
+        />
+        <path fill="#4a6cb8" d="M166.9 196.8a14.3 14.3 0 0 0-6.5 11.2c0 4.1 3 5.8 6.5 3.7a14.3 14.3 0 0 0 6.5-11.2c0-4.1-2.9-5.8-6.5-3.7zM138.8 219a8.3 8.3 0 0 0-3.7 6.5c0 2.4 1.7 3.3 3.8 2.1a8.3 8.3 0 0 0 3.7-6.5c0-2.4-1.7-3.4-3.8-2.2z"
         />
         </g>
         <g id="cont-wifi" ref={cont2Wifi}>
@@ -380,7 +387,7 @@ id="Layer_1" width="683.2" height="424.1" data-name="Layer 1">
         />
         <path fill="#f8f4fa" d="M277.4 320v-47.2h-36.6v47.1c0 2.8 1.8 5.5 5.4 7.5a28.5 28.5 0 0 0 25.9 0c3.5-2 5.3-4.8 5.3-7.5z"
         />
-        <g id="cyl-liquid" ref ={cylLiquid}>
+        <g id="cyl-liquid">
         <path fill="#00b0bc" d="M259.1 327.6a23.7 23.7 0 0 1-11.4-2.7c-2.5-1.4-4-3.3-4-5V295h30.8v24.8c0 1.8-1.4 3.6-3.9 5a23.5 23.5 0 0 1-11.5 2.7z"
         />
         <path fill="#4a6cb7" d="M261.5 327.5a22.3 22.3 0 0 0 9-2.6c2.5-1.4 4-3.2 4-5v-24.8h-13z"

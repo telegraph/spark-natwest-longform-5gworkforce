@@ -9,6 +9,37 @@
   z-index: 2;
   overflow: hidden;
 
+  .trigger {
+    p {
+      margin-bottom: 15px!important;
+    }
+  }
+
+  &.purple {
+    background: #43305c;
+    max-width: 100%;
+
+    .stars {
+      max-width: 300px;
+      display: block;
+      margin: 40px auto;
+    }
+
+    h2 {
+      font-size: 47px;
+      line-height: 50px;
+      font-family: 'RN House Sans', arial, sans-serif;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+    }
+
+    p {
+      color: #fff;
+      text-align: center;
+    }
+  }
+
   &.no-padding-top {
     padding-top: 0;
   }
@@ -69,6 +100,16 @@
   .pagebody {
     padding: 12% 20px;
     margin: 0 auto;
+
+    &.purple {
+      h2 {
+        font-size: 23px;
+        line-height: 20px;
+      }
+      .stars {
+        max-width: 190px;
+      }
+    }
 
     p {
       font-size: 16px;

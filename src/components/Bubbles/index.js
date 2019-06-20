@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, useTransition } from 'react-spring';
 import './style.scss';
 
-export default function Bubbles({ lessBubbles }) {
+export default function Bubbles({ lessBubbles, leastBubbles }) {
   const [data, setData] = useState([]);
-
-
-  const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
-  const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
-
-  const [props, set] = useSpring(() => (
-    { xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }
-  ));
+  const transitions = useTransition (data, '1', {
+    from: { transform: 'translate3d(0,-40px,0)' },
+    enter: { transform: 'translate3d(0,0px,0)' },
+    leave: { transform: 'translate3d(0,-40px,0)' },
+  });
 
   const bubbleData = [
     { x: 15, y: 3 },
@@ -67,13 +64,32 @@ export default function Bubbles({ lessBubbles }) {
     { x: 65, y: 93 },
   ];
 
+  const bubblesLeastData = [
+    { x: 15, y: 3 },
+    { x: 80, y: 15 },
+    { x: 15, y: 27 },
+    { x: 75, y: 39 },
+    { x: 10, y: 51 },
+    { x: 90, y: 63 },
+    { x: 20, y: 75 },
+    { x: 70, y: 87 },
+  ];
+
   useEffect(() => {
-    setData(lessBubbles ? bubbleLessData : bubbleData);
+    setData(() => {
+      if (lessBubbles) {
+        return bubbleLessData;
+      } else if (leastBubbles) {
+        return bubblesLeastData;
+      } else {
+        return bubbleData;
+      }
+    });
   }, []);
 
   return (
-    <div className="container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-      { data.map(bubble => <animated.div className="box" style={{ transform: props.xy.interpolate(trans1), top: `${bubble.y}%`, left: `${bubble.x}%` }} />)}
+    <div className="container">
+      { data.map(bubble => <animated.div className="box" style={{ top: `${bubble.y}%`, left: `${bubble.x}%` }} />)}
     </div>
   );
 }

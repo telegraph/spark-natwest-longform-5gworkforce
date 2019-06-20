@@ -12,10 +12,11 @@
   overflow: hidden;
 
   .hero__content {
-    margin: 11% 0 auto auto;
+    margin: 11% 2% auto auto;
     opacity: 0;
     transform: translateX(-5%);
     transition: all 0.9s;
+    max-width: 400px;
 
     &.visible {
       transform: translateX(0%);
@@ -31,6 +32,10 @@
     opacity: 0;
     transform: translateY(10%);
     transition: all 0.9s 0.2s;
+
+    svg {
+      overflow: visible;
+    }
 
   &.visible-art {
     opacity: 1;
@@ -101,6 +106,7 @@
     flex-flow: column;
     .hero__content {
       margin: 0 auto;
+      max-width: unset;
     }
     .hero__art {
       margin: 0 auto;
@@ -142,6 +148,7 @@
   
   .hero__art {
     margin-bottom: 100px;
+    margin-top: 30px;
     
     .art-mobile {
       display: block;

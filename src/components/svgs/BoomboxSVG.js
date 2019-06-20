@@ -22,8 +22,8 @@ export default function BoomboxSVG() {
 
     const speakerTL = new TimelineMax({ repeat: -1, yoyo: true });
     speakerTL
-      .to(speakerR.current, 0.3, { x: 2 }, 0)
-      .to(speakerL.current, 0.3, { x: 2 }, 0);
+      .fromTo(speakerR.current, 0.3, { x: -5 }, { x: 3 }, 0)
+      .fromTo(speakerL.current, 0.3, { x: -5 }, { x: 3 }, 0);
   },[]);
 
   return (

@@ -7,12 +7,12 @@ import Title from '../Title';
 import './style.scss';
 
 function Pagebody({
-  title, img, noPadding, children
+  title, img, noPadding, children, purple
 }) {
   const [bodyContent] = makeVisible();
 
   return (
-    <div className={`pagebody ${!title ? 'pagebody--notitle' : ''} ${noPadding ? 'no-padding-top' : ''}`}>
+    <div className={`pagebody ${!title ? 'pagebody--notitle' : ''} ${noPadding ? 'no-padding-top' : ''} ${purple ? 'purple' : ''}`}>
       {title ? <Title copy={title} img={img} /> : ''}
       <div className={`pagebody__content ${title ? '' : 'pagebody__content--notitle'}`} ref={bodyContent}>
         {children}

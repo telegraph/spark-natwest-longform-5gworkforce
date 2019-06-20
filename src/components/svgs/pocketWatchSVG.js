@@ -9,7 +9,7 @@ export default function PocketWatchSVG() {
   useEffect(() => {
     const watchMinuteTL = new TimelineMax({ repeat: -1 });
     watchMinuteTL
-      .to(hourHand.current, 4, { ease: Linear.easeNone, rotation: 360, transformOrigin: 'bottom bottom' }, 0);
+      .to(hourHand.current, 4, { ease: Linear.easeNone, rotation: 360, transformOrigin: '87% 107%' }, 0);
 
     const watchHourTL = new TimelineMax({ repeat: -1 });
     watchHourTL
@@ -18,7 +18,7 @@ export default function PocketWatchSVG() {
 
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="242.2" height="366.6"
+    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 242.2 366.6" width="242.2" height="366.6"
     data-name="Layer 1">
         <defs>
             <linearGradient id="linear-gradient" x1="44.6" x2="799.5" y1="155.8" y2="-6.1"
@@ -67,10 +67,10 @@ export default function PocketWatchSVG() {
             />
             <line id="minuteHand" ref={minuteHand} x1="134.8" x2="175.4" y1="231.6" y2="259.2" fill="none"
             stroke="#42145f" strokeMiterlimit="10" strokeWidth="2" />
-            <path fill="#06b3bb" d="M128.4 236.5a3.7 3.7 0 0 1-1.6-3.4 11.5 11.5 0 0 1 5.3-9 3.7 3.7 0 0 1 3.7-.4l3 1.5-7.2 13z"
-            />
             <line id="hourHand" ref={hourHand} x1="134.9" x2="134.9" y1="224.1" y2="159.2" fill="none"
             stroke="#42145f" strokeMiterlimit="10" strokeWidth="2" />
+            <path fill="#06b3bb" d="M128.4 236.5a3.7 3.7 0 0 1-1.6-3.4 11.5 11.5 0 0 1 5.3-9 3.7 3.7 0 0 1 3.7-.4l3 1.5-7.2 13z"
+            />
             <ellipse cx="135.1" cy="231.6" fill="#516cb4" rx="7.4" ry="4.3" transform="rotate(-59.8 135 231.6)"
             />
             <path fill="none" stroke="#fff" strokeMiterlimit="10" strokeWidth="4"

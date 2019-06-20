@@ -50,15 +50,22 @@
 
   .slider__bg {
     width: 100vw;
-    background: #401663;
+    background: url('../../assets/skyline.svg'), linear-gradient(#401663, #401663);
     background-size: cover;
     background-position: center;
-    height: 80vh;
     overflow: hidden;
 
     img {
       position: absolute;
       max-height: 93%;
+    }
+
+    svg {
+      width: 100%;
+      height: 110%;
+      max-width: 1200px;
+      display: block;
+      margin: 0 auto;
     }
 
 
@@ -159,6 +166,25 @@
   background: red;
 }
 
+@media (max-width: 970px) {
+  .slider {
+    .slider__bg {
+      height: 80vh;
+    }
+    .slider__container {
+      top: 19%;
+    }
+  }
+}
+
+@media (min-width: 970px) {
+  .slider {
+    .slider__bg {
+      background: #401663;
+    }
+  }
+}
+
 @media (min-width: 730px) {
   .slider {
     .slider__container {
@@ -179,9 +205,22 @@
       transform: translateX(-50%);
     }
     .slider__container {
-      min-width: 85%;
-      min-height: 140px;
-      top: 19%;
+      width: 70%;
+      min-height: 220px;
+      top: 18%;
+
+      .container__item {
+
+        h4 {
+          font-size: 35px;
+        }
+        p {
+          font-size: 16px;
+          line-height: 20px;
+          margin-top: 0px;
+        }
+        
+      }
     }
 
     .slider__progress {
@@ -223,6 +262,14 @@
     }
 
   }
+}
+
+@media (max-width: 475px) {
+    .slider {
+      .slider__container {
+        min-width: 100%!important;
+      }
+    }
 }
 
 

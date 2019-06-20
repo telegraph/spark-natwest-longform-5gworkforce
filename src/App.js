@@ -21,15 +21,16 @@ import Credits from './components/Credits';
 import Footer from './components/Footer';
 import Socials from './components/Socials';
 import AnimationTrigger from './components/AnimationTrigger';
+import Bubbles from './components/Bubbles';
 
 // Assets
-import HeroSVG from './components/svgs/HeroSVG';
 import ladder from './assets/titles/ladder.svg';
 import globe from './assets/titles/globe.svg';
 import dumbbell from './assets/titles/dumbbell.svg';
 import plane from './assets/titles/plane.svg';
 import trophy from './assets/titles/trophy.svg';
 import Broughttyb from './components/Broughttyb';
+import stars from './assets/stars.svg';
 
 function App() {
   const [progress, setProgress] = useState(0);
@@ -47,7 +48,7 @@ function App() {
   };
 
   useEffect(() => {
-    // on mount
+    // on update
     document.addEventListener('scroll', changeProgress);
     return function cleanup() {
       document.removeEventListener('scroll', changeProgress);
@@ -188,6 +189,38 @@ function App() {
           </p>
         </AnimationTrigger>
       </Pagebody>
+      <Pagebody purple>
+        <AnimationTrigger>
+          <h2 className="title__content">Tackling the talent drain in Europe</h2>
+        </AnimationTrigger>
+        <AnimationTrigger>
+          <img className="stars" src={stars} alt="stars" />
+        </AnimationTrigger>
+        <AnimationTrigger>
+          <p>
+            Offering part-time work is key to engaging workers in EU nations, with 19pc of EU workers engaged on a part-time basis, rising to 32pc among women, according to research by staffing company Kelly Services.
+          </p>
+          <p>
+            Dealing with staff as individuals can help workers to deal with the pressure of balancing work and home life, says Clare Eagle, chief people officer at cloud telephony platform Natterbox.
+          </p>
+            <p>
+              Ms Eagle says: “Whether it’s being late to work because of dropping the children off at school, or leaving early for a doctor’s appointment, staff feel guilty that they are having to put something else ahead of work. Companies should work with staff individually to create a workplace environment that best suits their needs and removes this guilt.”
+            </p>
+            <p>
+              Research by Kelly Services shows that workers in temporary and part-time work are being well rewarded in European countries, with 19pc saying that their motivation was increased reward. Kelly Services found that many employees are reluctant to engage with a traditional interview process, with just 38pc of interviewees having applied via an online portal without previous contact with the company.
+            </p>
+            <p>
+              Alister Esam, chief executive of Process Bliss, which advises SMEs, says: “The conventional approach to recruitment is flawed – it’s too much of a one-way street and the candidate has to effectively sell themselves to the employer. There is lots of talent out there but traditional approaches to recruitment are fundamentally unsuited to finding and developing it.”
+            </p>
+            <p>
+              Instead, Mr Esam invites applicants to complete a game-based psychometric assessment before selecting a shortlist, which he believes helps to find candidates who will stick.
+            </p>
+            <p>
+              He says: “We gather several candidates for a talk on what the business is all about, and see how they interact. Then each person will go for a walk with someone to interview them. We’ll then swap candidates and walk again, and then make a final decision about who to recruit.”
+            </p>
+          </AnimationTrigger>
+        <Bubbles leastBubbles />
+      </Pagebody>
       <Pagebody
         title="The challenges of the 5G workforce..."
         img={dumbbell}
@@ -251,7 +284,7 @@ function App() {
         </AnimationTrigger>
         <Pullquote quote>
           <h3>
-            Companies have traditionally been set up for the industrial age rather than a digital economy, which can potentially result in workers becoming deskilled and/or disengaged.\
+            Companies have traditionally been set up for the industrial age rather than a digital economy, which can potentially result in workers becoming deskilled and/or disengaged.
           </h3>
         </Pullquote>
         <AnimationTrigger>
