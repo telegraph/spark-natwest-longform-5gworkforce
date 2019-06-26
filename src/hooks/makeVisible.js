@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 
-
-// makeVisible hook that creates visible state, refs element and adds / removes event listener for scroll and changes state as so...
+// makeVisible hook that creates visible state, refs element and adds / removes
+// event listener for scroll and changes state as so...
 export default () => {
   const [isVisible, setVisibility] = useState(false);
   const ref = useRef(null);

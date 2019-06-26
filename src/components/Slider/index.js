@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { skylineSlider } from '../../data';
-import skylineImg from '../../assets/skyline.svg';
 import officeSliderCube from '../../assets/office-slider-cube.svg';
 
 import './style.scss';
@@ -29,7 +28,7 @@ function Slider() {
   }, []);
 
   useEffect(() => {
-    let width = window.innerWidth;
+    const width = window.innerWidth;
     if (width < 970) {
       setIsMobile(true);
     } else if (width > 970) {
@@ -102,8 +101,14 @@ function Slider() {
           })}
         </div>
         <div className="progress-line">
-        <input type="range"
-          min="0" max="7" onChange={handleThis} value={currentItem} step="1"></input>
+          <input
+            type="range"
+            min="0"
+            max="7"
+            onChange={handleThis}
+            value={currentItem}
+            step="1"
+          />
           <div className="line-marker" style={{ left: `${itemProgress}%` }}>
             <img src={officeSliderCube} />
           </div>

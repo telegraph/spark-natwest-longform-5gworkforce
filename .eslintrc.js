@@ -3,6 +3,9 @@ module.exports = {
     "plugins" : [
         "react-hooks"
     ],
+    "env": {
+        "browser": true
+    },
     "rules": {
         "react/jsx-filename-extension": false,
         "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks

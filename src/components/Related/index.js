@@ -27,8 +27,7 @@ const Related = () => (
           <div className="thumbnail t3" />
         </a>
         <a href="https://www.telegraph.co.uk/business/tips-for-the-future/future-of-manufacturing/?WT.mc_id=tmgspk_beeem_2477_ArHBB76M0PJD&utm_source=tmgspk&utm_medium=beeem&utm_content=2477&utm_campaign=tmgspk_beeem_2477_ArHBB76M0PJD" target="_blank">
-          <span className="description">The future of manufacturing
-</span>
+          <span className="description">The future of manufacturing</span>
         </a>
       </div>
     </div>

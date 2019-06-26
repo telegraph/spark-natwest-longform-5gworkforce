@@ -17,10 +17,14 @@ function Hero() {
     <div className="hero">
       <div className={`hero__content ${loaded ? 'visible' : ''}`}>
         <h1>
-          Future<br />workforce
+          Future
+          <br />
+          workforce
         </h1>
         <p>
-          Matching the varying expectations of workers across the five generations now in employment is essential for successful recruitment and retention.
+          Matching the varying expectations of workers across the five
+          generations now in employment is essential for successful
+          recruitment and retention.
         </p>
       </div>
       <div className={`hero__art ${loaded ? 'visible-art' : ''}`}>

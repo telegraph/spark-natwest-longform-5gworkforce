@@ -1,4 +1,4 @@
-//Timeline imports
+// Timeline imports
 import pocketWatch from './components/svgs/pocketWatchSVG';
 import brickPhone from './assets/5g-workforce/brick_phone.svg';
 import computer from './assets/5g-workforce/computer.svg';
@@ -11,28 +11,6 @@ import clock from './components/svgs/ClockSVG';
 import handsShaking from './assets/retain-talent/hands_shaking.svg';
 import parasol from './assets/retain-talent/parasol.svg';
 import plant from './assets/retain-talent/plant.svg';
-
-
-import interfaceLogo from './assets/brands/interface_logo.png';
-import interfacePhoto from './assets/brands/interface_1.png';
-
-
-import bidfoodLogo from './assets/brands/bidfood_logo.png';
-import bidfood from './assets/brands/bidfood_1.png';
-
-
-
-import menuLogo from './assets/brands/menu_logo.png';
-import menu from './assets/brands/menu_1.png';
-
-import mercatoLogo from './assets/brands/mercato_logo.png';
-import mercato from './assets/brands/mercato_1.png';
-
-import lightfootLogo from './assets/brands/lightfoot_logo.png';
-import lightfoot from './assets/brands/lightfoot_1.png';
-
-import blackSheepLogo from './assets/brands/blacksheep_logo.png';
-import blackSheep from './assets/brands/blacksheep_1.png';
 
 export const FiveGTimeline = [
   {
