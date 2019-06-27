@@ -161,10 +161,11 @@ function App() {
             </p>
           </Pullquote>
           <p>
-            Mr Petersen says: “Freelancers will come to play an even more
-            pivotal role in the British economy than they already do. Since
-            2009, the freelance economy in the UK has grown by 25pc and
-            generates an estimated £109bn a year, according to IPSE.
+            For employers in the UK, this trend offers an opportunity,
+            according to Mr Petersen. He says: “Freelancers will come to play
+            an even more pivotal role in the British economy than they already
+            do. Since 2009, the freelance economy in the UK has grown by 25pc
+            and generates an estimated £109bn a year, according to IPSE.
           </p>
           <p>
             “There are around two million freelance workers in the UK. They
