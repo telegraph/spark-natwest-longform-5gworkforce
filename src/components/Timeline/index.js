@@ -12,7 +12,7 @@ import './style.scss';
 // const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`;
 // const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
 
-function Timeline({ title, items, oneLineTitle }) {
+function Timeline({ title, items, oneLineTitle, anchor }) {
   // Set state
   const [fixed, updateFixed] = useState(false);
   const [titleFade, triggerTitleFade] = useState(false);
@@ -54,7 +54,7 @@ function Timeline({ title, items, oneLineTitle }) {
 
 
   return (
-    <div className="scrollGallery" ref={timeLine}>
+    <div className="scrollGallery" id={anchor} ref={timeLine}>
       <h3 className={`scrollGallery__title ${fixed ? 'fixed' : ''} ${titleFade ? 'fade' : ''} ${oneLineTitle ? 'oneLine' : ''}`} ref={timelineTitle}>
         {title}
       </h3>

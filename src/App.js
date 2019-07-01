@@ -93,6 +93,7 @@ function App() {
         title="The 5G Workforce"
         items={FiveGTimeline}
         oneLineTitle
+        anchor="5g"
       />
       <Pagebody title="The rise of the 5G workforce" img={ladder}>
         <AnimationTrigger>
@@ -279,7 +280,7 @@ function App() {
           </p>
         </AnimationTrigger>
       </Pagebody>
-      <Pagebody purple>
+      <Pagebody purple anchor="challenges">
         <AnimationTrigger>
           <h2 className="title__content">Tackling the talent drain in Europe</h2>
         </AnimationTrigger>
@@ -490,6 +491,7 @@ function App() {
       <Timeline
         title="How businesses can attract and retain talent"
         items={retainTalent}
+        anchor="talent"
       />
       <Pagebody
         title="How to keep talent"
